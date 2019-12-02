@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+	<title>PERSONA</title>
+	
+</head>
+<body>
+        <div class="container">
+                <div class="form__top">
+                    <h2>REGISTRO <span>PERSONA</span></h2>
+                </div>		
+               
+                <form  action="">
+                       
+                    <input  name="nombre" class="form-control nombre-input" type="text" onkeypress="return soloLetras(event)" placeholder="Nombre" required autofocus>
+                 
+                    <br>
+                    <input name="apellidoPaterno"class="form-control apellidoPaterno-input" type="text" onkeypress="return soloLetras(event)" placeholder="Apelllido Paterno" required>
+                    <br>
+                    <input name="apellidoMaterno" class="form-control apellidoMaterno-input" type="text" onkeypress="return soloLetras(event)" placeholder="Apellido Materno" required>
+                    <br>
+                    <input name="ocupacion" class="form-control ocupacion-input" type="text" onkeypress="return soloLetras(event)" placeholder="Ocupacion" required>
+                    <br>
+                    <input name="email" class="form-control email-input" type="email" onkeypress="return soloLetras(event)" placeholder="correo" required>
+                    <div class="btn__form">
+                       
+                        <button class="btn btn-primary add-blog" onclick="location.href='index.html'" >CREAR NUEVO</button>
+                        <button class="btn btn-danger" onclick="location.href='index.html'" >CANCELAR</button>
+                      	
+                    </div>
+               
+                </form>
+       
+            </div>
+
+            <script type="text/template" class="blogs-list-template">
+            </script>
+
+   <script src="node_modules/jquery/dist/jquery.js"></script>
+   <script src="node_modules/underscore/underscore.js"></script>
+	<script src="node_modules/backbone/backbone.js"></script>
+	<script src="js/scripts.js"></script>
+
+    
+    <script>
+    function soloLetras(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+       especiales = "8-37-39-46";
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            return false;
+        }
+    }
+    </script>
+
+
+	
+</body>
+</html>
