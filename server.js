@@ -48,7 +48,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 // ROUTES
-app.use(require('./Public/js/scripts.js'));
+app.use(require('./scripts.js'));
 app.get('/api/blogs', function(req, res) {
 	Blog.find(function(err, docs) {
 		docs.forEach(function(item) {
