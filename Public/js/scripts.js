@@ -61,6 +61,31 @@ var BlogView = Backbone.View.extend({
 		this.$('.email').html('<input type="text" id="email" class="form-control email-update" value="' + email + '">');
 	},
 	update: function() {
+		var miCampoTexto1 = document.getElementById("nombre").value;
+		var miCampoTexto2 = document.getElementById("apellidoPaterno").value;
+		var miCampoTexto3 = document.getElementById("apellidoMaterno").value;
+		var miCampoTexto4 = document.getElementById("ocupacion").value;
+		var miCampoTexto5 = document.getElementById("email").value;
+		if(miCampoTexto1.length == 0 || /^\s+$/.test(miCampoTexto1)){
+			alert('HAY CAMPOS VACIOS!');
+			return false;
+		}
+		if(miCampoTexto2.length == 0 || /^\s+$/.test(miCampoTexto2)){
+			alert('HAY CAMPOS VACIOS!');
+			return false;
+		}
+		if(miCampoTexto3.length == 0 || /^\s+$/.test(miCampoTexto3)){
+			alert('HAY CAMPOS VACIOS!');
+			return false;
+		}
+		if(miCampoTexto4.length == 0 || /^\s+$/.test(miCampoTexto4)){
+			alert('HAY CAMPOS VACIOS!');
+			return false;
+		}
+		if(miCampoTexto5.length == 0 || /^\s+$/.test(miCampoTexto5)){
+			alert('HAY CAMPOS VACIOS!');
+			return false;
+		}
 		this.model.set('nombre', $('.nombre-update').val());
 		this.model.set('apellidoPaterno', $('.apellidoPaterno-update').val());
 		this.model.set('apellidoMaterno', $('.apellidoMaterno-update').val());
@@ -87,16 +112,21 @@ var BlogView = Backbone.View.extend({
 	},
 
 	delete: function() {
-		this.model.destroy({
-			success: function(response) {
-				alert('ELIMINACION CORRECTA PERSONA: '+ response.toJSON()._id);
-				console.log('ELIMINACION CORRECTA PERSONA _id: ' + response.toJSON()._id);
-			},
-			error: function(err) {
-				alert('ELIMINACIÓN FALLIDA, INTENTE MAS TARDE');
-				console.log('ELIMINACION FALLIDA, INTENTE MAS TARDE!');
-			}
-		});
+		if(confirm("DESEA ELIMINAR ESTE REGISTRO?")){
+			this.model.destroy({
+				success: function(response) {
+					alert('ELIMINACION CORRECTA PERSONA: '+ response.toJSON()._id);
+					console.log('ELIMINACION CORRECTA PERSONA _id: ' + response.toJSON()._id);
+				},
+				error: function(err) {
+					alert('ELIMINACIÓN FALLIDA, INTENTE MAS TARDE');
+					console.log('ELIMINACION FALLIDA, INTENTE MAS TARDE!');
+				}
+			});
+		}else{
+			alert('Eliminacion Cancelada');
+		}
+	
 	},
 
 	
@@ -147,6 +177,32 @@ var blogsView = new BlogsView();
 
 $(document).ready(function() {
 	$('.add-blog').on('click', function() {
+		var miCampoTexto1 = document.getElementById("nombre").value;
+		var miCampoTexto2 = document.getElementById("apellidoPaterno").value;
+		var miCampoTexto3 = document.getElementById("apellidoMaterno").value;
+		var miCampoTexto4 = document.getElementById("ocupacion").value;
+		var miCampoTexto5 = document.getElementById("email").value;
+		if(miCampoTexto1.length == 0 || /^\s+$/.test(miCampoTexto1)){
+			alert('HAY CAMPOS VACIOS!');
+			return false;
+		}
+		if(miCampoTexto2.length == 0 || /^\s+$/.test(miCampoTexto2)){
+			alert('HAY CAMPOS VACIOS!');
+			return false;
+		}
+		if(miCampoTexto3.length == 0 || /^\s+$/.test(miCampoTexto3)){
+			alert('HAY CAMPOS VACIOS!');
+			return false;
+		}
+		if(miCampoTexto4.length == 0 || /^\s+$/.test(miCampoTexto4)){
+			alert('HAY CAMPOS VACIOS!');
+			return false;
+		}
+		if(miCampoTexto5.length == 0 || /^\s+$/.test(miCampoTexto5)){
+			alert('HAY CAMPOS VACIOS!');
+			return false;
+		}
+		
 		var blog = new Blog({
 			nombre: $('.nombre-input').val(),
 			apellidoPaterno: $('.apellidoPaterno-input').val(),
@@ -161,11 +217,13 @@ $(document).ready(function() {
 		$('.email-input').val('');
 		blogs.add(blog);
 		blog.save(null, {
+			
 			success: function(response) {
-				alert('insercion correcta');
+				alert('REGISTRO EXITOSO');
 				console.log('Successfully SAVED blog with _id: ' + response.toJSON()._id);
 			},
 			error: function() {
+				alert('ERROR, INTENTE MAS TARDE!');
 				console.log('Failed to save blog!');
 			}
 		});

@@ -7,29 +7,72 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
 	<title>PERSONA</title>
-	
+	<style>
+        
+         
+            #menu{
+               background-color: #000;
+      
+            }
+      
+            #menu ul{
+               list-style: none;
+               margin: 0;
+               padding: 500;
+            }
+      
+            #menu ul li{
+               display: inline-block;
+            }
+      
+            #menu ul li a{
+               color: white;
+               display: block;
+               padding: 10px 20px;
+               text-decoration: none;
+            }
+      
+            #menu ul li a:hover{
+               background-color: #42B881;
+            }
+      
+            .item-r{
+               float: right;
+            }
+         </style>
 </head>
 <body>
+        <div id="menu">
+                <ul>
+                   <li><a href="index.html">INICIO</a></li>
+                   
+                   
+                  
+                </ul>
+             </div>
+    
         <div class="container">
                 <div class="form__top">
                     <h2>REGISTRO <span>PERSONA</span></h2>
                 </div>		
                
-                <form  action="">
+                <form  action="create.html" onsubmit="return valida()">
                        
-                    <input  name="nombre" class="form-control nombre-input" type="text" onkeypress="return soloLetras(event)" placeholder="Nombre" required autofocus>
+                    <input  id="nombre" name="nombre" class="form-control nombre-input" type="text" onkeypress="return soloLetras(event)" placeholder="Nombre" required autofocus>
                  
                     <br>
-                    <input name="apellidoPaterno"class="form-control apellidoPaterno-input" type="text" onkeypress="return soloLetras(event)" placeholder="Apelllido Paterno" required>
+                    <input id="apellidoPaterno" name="apellidoPaterno" class="form-control apellidoPaterno-input" type="text" onkeypress="return soloLetras(event)" placeholder="Apelllido Paterno" required>
                     <br>
-                    <input name="apellidoMaterno" class="form-control apellidoMaterno-input" type="text" onkeypress="return soloLetras(event)" placeholder="Apellido Materno" required>
+                    <input id="apellidoMaterno" name="apellidoMaterno" class="form-control apellidoMaterno-input" type="text" onkeypress="return soloLetras(event)" placeholder="Apellido Materno" required>
                     <br>
-                    <input name="ocupacion" class="form-control ocupacion-input" type="text" onkeypress="return soloLetras(event)" placeholder="Ocupacion" required>
+                    <input id="ocupacion" name="ocupacion" class="form-control ocupacion-input" type="text" onkeypress="return soloLetras(event)" placeholder="Ocupacion" required>
                     <br>
-                    <input name="email" class="form-control email-input" type="email" onkeypress="return soloLetras(event)" placeholder="correo" required>
+                    <input id="email" name="email" class="form-control email-input" type="email"  placeholder="correo" required>
                     <div class="btn__form">
-                       
-                        <button class="btn btn-primary add-blog" onclick="location.href='index.html'" >CREAR NUEVO</button>
+
+                     
+                   
+                        <button type="submit" class="btn btn-primary add-blog"  onclick="location.href='index.html'" >CREAR NUEVO</button>
                         <button class="btn btn-danger" onclick="location.href='index.html'" >CANCELAR</button>
                       	
                     </div>
@@ -37,7 +80,7 @@
                 </form>
        
             </div>
-
+            
             <script type="text/template" class="blogs-list-template">
             </script>
 
@@ -61,7 +104,6 @@
                 break;
             }
         }
-
         if(letras.indexOf(tecla)==-1 && !tecla_especial){
             return false;
         }

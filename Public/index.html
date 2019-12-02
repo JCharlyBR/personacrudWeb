@@ -4,31 +4,58 @@
    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-grid.min.css">   
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/tabla.css">
+    <link rel="stylesheet" href="./css/tabla.css">  
 
-  
-  
    <meta charset="UTF-8">
-
- 
-
+   <style>
+        
+         
+         #menu{
+            background-color: #000;
+   
+         }
+   
+         #menu ul{
+            list-style: none;
+            margin: 0;
+            padding: 500;
+         }
+   
+         #menu ul li{
+            display: inline-block;
+         }
+   
+         #menu ul li a{
+            color: white;
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+         }
+   
+         #menu ul li a:hover{
+            background-color: #42B881;
+         }
+   
+         .item-r{
+            float: right;
+         }
+      </style>
    <title>PERSONA</title>
    
 	
 </head>
 <body>
+      <div id="menu">
+            <ul>
+               <li><a href="index.html">INICIO</a></li>
+               <li><a href="create.html">NUEVO REGISTRO</a></li>
+               
+              
+            </ul>
+         </div>
 
       <header role="banner">
-            <div class="top-bar">
-              <div class="container">
-                <div class="row">                
-                  
-                      <label></label> 
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
       
             <div class="container logo-wrap">
               <div class="row pt-5">
@@ -41,7 +68,7 @@
             
            
           </header>
-
+          <div id="main-container">
 	<div class="container">
 
 		<table class="table" role="table">
@@ -61,7 +88,8 @@
 			</thead>
 			<tbody class="blogs-list"></tbody>
 		</table>
-	</div>
+   </div>
+</div>
 
 	<script type="text/template" class="blogs-list-template">
 	<td><span class="nombre"><%= nombre %></span></td>
