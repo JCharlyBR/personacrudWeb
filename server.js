@@ -2,20 +2,12 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/persona');
+mongoose.connect('mongodb+srv://root:<p4oBFJ4GDN6vRNud>@cluster0-c5uy1.mongodb.net/test?retryWrites=true&w=majority');
 
 //mongodb+srv://root:<password>@cluster0-c5uy1.mongodb.net/test?retryWrites=true&w=majority
 
 
 
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://root:<password>@cluster0-c5uy1.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
 
 var Schema = mongoose.Schema;
 
@@ -48,8 +40,8 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 // ROUTES
-app.use(require('server'));
-app.use('server', require('server'));
+app.use(require('/app/server.js'));
+//app.use('server', require('server'));
 app.get('/api/blogs', function(req, res) {
 	Blog.find(function(err, docs) {
 		docs.forEach(function(item) {
