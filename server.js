@@ -40,7 +40,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 // ROUTES
-app.use(require('/app/server.js'));
+app.use(require('./server.js'));
 //app.use('server', require('server'));
 app.get('/api/blogs', function(req, res) {
 	Blog.find(function(err, docs) {
